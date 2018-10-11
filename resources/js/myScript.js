@@ -16,11 +16,11 @@
 
 
 var values = {
-	paths: 10,
+	paths: 20,
 	minPoints: 2,
-	maxPoints: 15,
-	minRadius: 10,
-	maxRadius: 30
+	maxPoints: 11,
+	minRadius: 20,
+	maxRadius: 70
 };
 
 var hitOptions = {
@@ -68,3 +68,21 @@ function createBlob(center, maxRadius, points) {
 	path.smooth();
 	return path;
 }
+
+// function onFrame(event) {
+// 	// Run through the active layer's children list and change
+// 	// the position of the placed symbols:
+// 	for (var i = 0; i < values.paths; i++) {
+// 		var item = project.activeLayer.children[i];
+		
+// 		// Move the item 1/20th of its width to the right. This way
+// 		// larger circles move faster than smaller circles:
+// 		item.position.x += item.bounds.width / 300;
+
+// 		// If the item has left the view on the right, move it back
+// 		// to the left:
+// 		if (item.bounds.left > view.size.width) {
+// 			item.position.x = -item.bounds.width;
+// 		}
+// 	}
+// }
