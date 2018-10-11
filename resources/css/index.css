@@ -21,6 +21,12 @@ canvas {
     bottom: 8px;
     left: 16px;
     z-index: 2;
-    font-size: 65px;
-    color: pink;
+    /* font-size: 65px; */
+    color: black;
+    font: 55px Cotham-Sans, sans-serif;
+}
+
+@font-face {
+    font-family: Cotham-Sans;
+    src: url('../fonts/Cotham-master/CothamSans.otf'); 
 }
