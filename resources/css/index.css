@@ -21,18 +21,16 @@ canvas {
     bottom: 8px;
     left: 16px;
     z-index: 2;
-    /* font-size: 65px; */
     color: black;
     font: 35px Cotham-Sans, sans-serif;
 }
 
 
-.navigation {
+.navigation-bar {
     position: absolute;
     bottom: 8px;
     left: 75%;
     z-index: 2;
-    /* font-size: 65px; */
     color: black;
     font: 20px Cotham-Sans, sans-serif;
 }
@@ -40,4 +38,28 @@ canvas {
 @font-face {
     font-family: Cotham-Sans;
     src: url('../fonts/Cotham-master/CothamSans.otf'); 
+}
+
+.nav-button {
+    
+    white-space: nowrap;
+}
+
+.nav-button:hover {
+    color: pink;
+}
+
+#projectsDisplay {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    color: purple;
+}
+
+#aboutMeDisplay {
+    color: green;
+}
+
+#contactInfoDisplay {
+    color: orange;
 }
