@@ -23,7 +23,18 @@ canvas {
     z-index: 2;
     /* font-size: 65px; */
     color: black;
-    font: 55px Cotham-Sans, sans-serif;
+    font: 35px Cotham-Sans, sans-serif;
+}
+
+
+.navigation {
+    position: absolute;
+    bottom: 8px;
+    left: 75%;
+    z-index: 2;
+    /* font-size: 65px; */
+    color: black;
+    font: 20px Cotham-Sans, sans-serif;
 }
 
 @font-face {
