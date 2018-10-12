@@ -1,0 +1,43 @@
+html,
+body {
+    height: 100%;
+}
+
+/* Scale canvas with resize attribute to full size */
+canvas[resize] {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#name {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    z-index: 2;
+    /* font-size: 65px; */
+    color: black;
+    font: 35px Cotham-Sans, sans-serif;
+}
+
+
+.navigation {
+    position: absolute;
+    bottom: 8px;
+    left: 75%;
+    z-index: 2;
+    /* font-size: 65px; */
+    color: black;
+    font: 20px Cotham-Sans, sans-serif;
+}
+
+@font-face {
+    font-family: Cotham-Sans;
+    src: url('../fonts/Cotham-master/CothamSans.otf'); 
+}
