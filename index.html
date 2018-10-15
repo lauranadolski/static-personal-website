@@ -19,13 +19,20 @@
 <body>
 
 <canvas id="myCanvas" resize="true"></canvas>
+
+
+    <div id="test-div"></div>
+
+    <div id="projectsDisplay">projects display</div>
+    <div id="aboutMeDisplay">about me display</div>
+    <div id="contactInfoDisplay">contact info display</div>
+
     <div id="name">Laura Nadolski</div>
-    <div class="navigation">
-        <div>Projects</div> <div>Say Hello</div>
+    <div class="navigation-bar">
+        <div id="projects" class="nav-button" onClick="displayProjects()">Projects</div>
+        <div id="about" class="nav-button" onClick="displayAboutMe()">About Me</div>
+        <div id="hello" class="nav-button" onClick="displayContactInformation()">Say Hello</div>
     </div>
-    
-
-
 </body>
 
 </html>

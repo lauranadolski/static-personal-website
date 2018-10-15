@@ -1,35 +1,20 @@
-// Create a circle shaped path at the center of the view,
-// with a radius of 70:
-// var path = new Path.Circle({
-// 	center: view.center,
-// 	radius: 70,
-// 	fillColor: '#CDD3EE'
-// });
-
-// function onFrame(event) {
-// 	// Each frame, change the fill color of the path slightly by
-// 	// adding 1 to its hue:
-// 	path.fillColor.hue += 1;
-// }
-
-
-
+// This is the file that powers all of the Paper.js schtuffs - which currently includes random blob generation.
+// This code includes code that originally came from a Paper.js example (I have modified it).
 
 var values = {
+	// The number of blobs to render on the page.
 	paths: 20,
+	// The minimum number of points on any given blob.
 	minPoints: 2,
+	// The maximum number of points on any given blob.
 	maxPoints: 11,
+	// The minimum radius of any given blob (blob size).
 	minRadius: 20,
+	// The maximum radius of any given blob (blob size).
 	maxRadius: 70
 };
 
-var hitOptions = {
-	segments: true,
-	stroke: true,
-	fill: true,
-	tolerance: 5
-};
-
+// Hex color options from which to grab to fill each blob.
 var colorOptions = [
 	'#DDE6F3',
 	'#E3C9B0',
@@ -37,52 +22,58 @@ var colorOptions = [
 	'#D6C6EB',
 ]
 
-// '#CDD3EE',
-
-createPaths();
-
+// Creates all of the blobs.
 function createPaths() {
-	var radiusDelta = values.maxRadius - values.minRadius;
-	var pointsDelta = values.maxPoints - values.minPoints;
+
+	// For loop that iterates however many times is specified in the paths key of the values object.
 	for (var i = 0; i < values.paths; i++) {
-		var radius = values.minRadius + Math.random() * radiusDelta;
-		var points = values.minPoints + Math.floor(Math.random() * pointsDelta);
+
+		// Generate a random radius for the blob.
+		var radius = Math.floor(Math.random() * values.maxRadius) + values.minRadius;
+
+
+		// Generate a random number of points for the blob.
+		var points = Math.floor(Math.random() * values.maxPoints) + values.minPoints;
+
+		// Invoke the below createBlob() function, passing through as arguments:
+			// 1) a center point, randomly generated from the current size of the viewport
+			// 2) the above-generated radius within the specified range
+			// 3) the above-generated number of points within the specified range
 		var path = createBlob(view.size * Point.random(), radius, points);
-		var lightness = (Math.random() - 0.5) * 0.4 + 0.4;
-		var hue = colorOptions[Math.floor(Math.random() * colorOptions.length)]
-		path.fillColor = hue;
-		// path.fillColor = { hue: hue, saturation: 1, lightness: lightness };
+
+		// Grab from a random index of the colorOptions array, make the blob that color.
+		var color = colorOptions[Math.floor(Math.random() * colorOptions.length)];
+		path.fillColor = color;
 	};
 }
 
 function createBlob(center, maxRadius, points) {
+	// Generate a new path.
 	var path = new Path();
+
+	// Set the path.closed property to true, which will connect the first and last segments of the path.
 	path.closed = true;
+
+	// Create the points, based on the passed-through specified number of points.
 	for (var i = 0; i < points; i++) {
+
 		var delta = new Point({
+			// For the newly generated point, set the length to be random but within the specified maximum radius.
 			length: (maxRadius * 0.5) + (Math.random() * maxRadius * 0.5),
+			// For the newly generated point, set the angle to be at some fraction of 360 degrees in sum.
 			angle: (360 / points) * i
 		});
+
+		// Add the segment to the end of the segments array of this path.
 		path.add(center + delta);
 	}
+
+	// Smooth paths to create curves that flow smoothly through the path's segment points.
 	path.smooth();
+
+	// Return the newly generated path object.
 	return path;
 }
 
-// function onFrame(event) {
-// 	// Run through the active layer's children list and change
-// 	// the position of the placed symbols:
-// 	for (var i = 0; i < values.paths; i++) {
-// 		var item = project.activeLayer.children[i];
-		
-// 		// Move the item 1/20th of its width to the right. This way
-// 		// larger circles move faster than smaller circles:
-// 		item.position.x += item.bounds.width / 300;
-
-// 		// If the item has left the view on the right, move it back
-// 		// to the left:
-// 		if (item.bounds.left > view.size.width) {
-// 			item.position.x = -item.bounds.width;
-// 		}
-// 	}
-// }
+// Invokes the function to create these here blobs.
+createPaths();
