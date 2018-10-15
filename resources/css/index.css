@@ -47,12 +47,16 @@ canvas {
 
 .nav-button:hover {
     color: pink;
+    transform: matrix(1, 2, -1, 1, 80, 80);
+
+
+
 }
 
 #projectsDisplay {
     position: absolute;
-    left: 50%;
-    bottom: 50%;
+    /* left: 50%;
+    bottom: 50%; */
     color: purple;
 }
 
@@ -62,4 +66,45 @@ canvas {
 
 #contactInfoDisplay {
     color: orange;
+}
+
+#test-div {
+    background-color: grey;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    left: 50%;
+    bottom: 50%;
+    z-index: 100;
+}
+
+#test-div:hover {
+    animation-name: wiggle;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    /* transform-origin: 30% 20%;
+    transform: skew(10deg, 10deg); */
+}
+
+@keyframes wiggle {
+    0% {
+        transform-origin: top left;
+        transform: skew(5deg, 5deg);
+    }
+    25% {
+        transform-origin: top left;
+        transform: skew(-5deg, -5deg);
+    }
+    50% {
+        transform-origin: top left;
+        transform: skew(5deg, 5deg);
+    }
+    75% {
+        transform-origin: top left;
+        transform: skew(-5deg, -5deg);
+    }
+    100% {
+        transform-origin: top left;
+        transform: skew(5deg, 5deg);
+    }
 }
