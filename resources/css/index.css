@@ -68,7 +68,7 @@ canvas {
     color: orange;
 }
 
-#test-div {
+/* #test-div {
     background-color: grey;
     position: absolute;
     height: 100px;
@@ -76,17 +76,17 @@ canvas {
     left: 50%;
     bottom: 50%;
     z-index: 100;
-}
+} */
 
-#test-div:hover {
+/* #test-div:hover {
     animation-name: wiggle;
     animation-duration: 5s;
     animation-iteration-count: infinite;
     /* transform-origin: 30% 20%;
     transform: skew(10deg, 10deg); */
-}
+} */
 
-@keyframes wiggle {
+/* @keyframes wiggle {
     0% {
         transform-origin: top left;
         transform: skew(5deg, 5deg);
@@ -107,4 +107,4 @@ canvas {
         transform-origin: top left;
         transform: skew(5deg, 5deg);
     }
-}
+} */
